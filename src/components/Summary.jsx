@@ -28,7 +28,7 @@ export default function Summary() {
             .then(res => res.json())
             .then(setData)
             .catch(console.error);
-    }, []);
+    }, [roles.length]);
 
     useEffect(() => {
         // Cycle roles every 2 seconds
@@ -36,7 +36,7 @@ export default function Summary() {
             setRoleIndex(prev => (prev + 1) % roles.length);
         }, 2000);
         return () => clearInterval(id);
-    }, []);
+    }, [roles.length]);
 
     return (
             <section
