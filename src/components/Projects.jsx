@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../api';
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        fetch('/api/projects')
+        fetch(`${API}/api/projects`)
             .then(res => {
                 if (!res.ok) throw new Error(res.statusText);
                 return res.json();

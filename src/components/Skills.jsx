@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Code, Database, Wrench, Box, Search } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { API } from '../api';
 
 const getIcon = (category) => {
     const key = category.toLowerCase();
@@ -16,7 +17,7 @@ export default function Skills() {
     const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        fetch('/api/skills')
+        fetch(`${API}/api/skills`)
             .then(res => res.json())
             .then(setSkills)
             .catch(err => console.error('Error fetching skills:', err));

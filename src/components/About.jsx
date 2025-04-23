@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../api';
+
 export default function About() {
     const [data, setData] = useState({ heading: '', content: '' });
 
     useEffect(() => {
-        fetch('/api/about')
+        fetch(`${API}/api/about`)
             .then(res => res.json())
             .then(setData)
             .catch(console.error);

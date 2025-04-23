@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Minus, ExternalLink } from 'lucide-react';
+import { API } from '../api';
 
 export default function Experience() {
     const [items, setItems] = useState([]);
     const [openIndex, setOpenIndex] = useState(-1);
 
     useEffect(() => {
-        fetch('/api/experience')
+        fetch(`${API}/api/experience`)
             .then(res => {
                 if (!res.ok) throw new Error(res.statusText);
                 return res.json();

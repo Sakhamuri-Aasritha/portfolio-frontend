@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../api';
 
 import { Linkedin, Github } from 'lucide-react';
 
@@ -24,7 +25,7 @@ export default function Summary() {
 
     useEffect(() => {
         // Fetch your static fields once
-        fetch('/api/summary')
+        fetch(`${API}/api/summary`)
             .then(res => res.json())
             .then(setData)
             .catch(console.error);

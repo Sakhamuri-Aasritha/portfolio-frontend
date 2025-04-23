@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../api';
 
 export default function Education() {
     const [edus, setEdus] = useState([]);
 
     useEffect(() => {
-        fetch('/api/education')
+        fetch(`${API}/api/education`)
             .then(res => {
                 if (!res.ok) throw new Error(res.statusText);
                 return res.json();
